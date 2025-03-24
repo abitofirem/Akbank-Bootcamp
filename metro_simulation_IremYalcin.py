@@ -90,22 +90,41 @@ class MetroAgi:
 def metro_agini_gorsellestir(metro):
     G = nx.Graph()  # Yeni bir grafik nesnesi oluşturuyoruz.
 
+    #Hattın renklerini belirliyoruz
+    hat_renkleri = {
+        "Kırmızı Hat": "red",
+        "Mavi Hat": "blue",
+        "Turuncu Hat": "orange",
+        "Yeşil Hat": "green",
+        "Mor Hat": "purple"
+    }
+
     #İstasyonlar ve bağlantılar ekleme
     for istasyon_id, istasyon in metro.istasyonlar.items():
-        G.add_node(istasyon.ad)  #İstasyonu grafiğe ekliyoruz
+        hat_renk = hat_renkleri.get(istasyon.hat, "gray")  # Varsayılan renk: gri
+        G.add_node(istasyon.ad, color=hat_renk)  # İstasyonu grafiğe ekliyoruz
 
         for komsu, sure in istasyon.komsular:
-            G.add_edge(istasyon.ad, komsu.ad, weight=sure)  #Bağlantıları ekliyoruz
+            G.add_edge(istasyon.ad, komsu.ad, weight=sure)  # Bağlantıları ekliyoruz
 
+    #Grafik özellikleri
+    pos = nx.spring_layout(G)  # Düğümlerin konumlarını belirliyoruz
 
+    #Düğüm renklerini, her hattın rengine göre ayarlıyoruz
+    node_colors = [G.nodes[node]['color'] for node in G.nodes]
 
-    #Grafiği çizme
-    pos = nx.spring_layout(G)  #Düğümlerin konumlarını belirliyoruz.
-    nx.draw(G, pos, with_labels=True, node_color="skyblue", node_size=2000, font_size=10)
-    labels = nx.get_edge_attributes(G, 'weight')  #Bağlantı ağırlıklarını etiket olarak alıyoruz
-    nx.draw_networkx_edge_labels(G, pos, edge_labels=labels)
+    #Çizim: Nokta ve bağlantı renklerini özelleştiriyoruz
+    nx.draw(G, pos, with_labels=True, node_color=node_colors, node_size=3000, font_size=10, font_weight="bold", edge_color="black", width=2)
+
+    #Bağlantı ağırlıklarını etiket olarak alıyoruz
+    labels = nx.get_edge_attributes(G, 'weight')
+    nx.draw_networkx_edge_labels(G, pos, edge_labels=labels, font_size=8, font_color="red")
+
+    #Başlık ve grafik gösterimi
     plt.title("Metro Ağı Görselleştirme")
     plt.show()
+
+
     
     
 #Örnek Kullanım
