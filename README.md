@@ -49,7 +49,7 @@ rota = metro.en_az_aktarma_bul("M1", "K4")
 
 Metro ağı, her hattın farklı renklerle görselleştirildiği ve her bağlantındaki mesafelerin etiketlendiği şekilde sunulmuştur. Kullanıcılar, metro ağını görsel olarak inceleyebilir, istasyonlar arasındaki bağlantıları ve süreleri kolayca görebilirler. Aşağıda, metro ağını gösteren görsel örneği bulunmaktadır:
 
-![Metro Ağı Görselleştirme](./metro_network_image.png)
+![Image](https://github.com/user-attachments/assets/c9bd0f1b-ea61-42d8-9456-1bbf5b28cf63)
 
 ### Graf Görselleştirme Detayları
 
