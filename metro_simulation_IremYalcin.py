@@ -86,13 +86,13 @@ if __name__ == "__main__":
 
     #İstasyonlar ekleme
     
-    # Kırmızı Hat
+    #Kırmızı Hat
     metro.istasyon_ekle("K1", "Kızılay", "Kırmızı Hat")
     metro.istasyon_ekle("K2", "Ulus", "Kırmızı Hat")
     metro.istasyon_ekle("K3", "Demetevler", "Kırmızı Hat")
     metro.istasyon_ekle("K4", "OSB", "Kırmızı Hat")
 
-    # Mavi Hat
+    #Mavi Hat
     metro.istasyon_ekle("M1", "AŞTİ", "Mavi Hat")
     metro.istasyon_ekle("M2", "Kızılay", "Mavi Hat")
     metro.istasyon_ekle("M3", "Sıhhiye", "Mavi Hat")
@@ -104,11 +104,16 @@ if __name__ == "__main__":
     metro.istasyon_ekle("T3", "Gar", "Turuncu Hat")
     metro.istasyon_ekle("T4", "Keçiören", "Turuncu Hat")
     
-    # Yeşil Hat
+    #Yeşil Hat
     metro.istasyon_ekle("Y1", "Gazi", "Yeşil Hat")
     metro.istasyon_ekle("Y2", "Emek", "Yeşil Hat")
     metro.istasyon_ekle("Y3", "Bahçelievler", "Yeşil Hat")
     metro.istasyon_ekle("Y4", "Kolej", "Yeşil Hat")
+
+    #Mor Hat
+    metro.istasyon_ekle("P1", "OSTİM", "Mor Hat")
+    metro.istasyon_ekle("P2", "Gimat", "Mor Hat")
+    metro.istasyon_ekle("P3", "AŞTİ", "Mor Hat")  #AŞTİ zaten var, aktarma olacak
 
 
     metro.baglanti_ekle("K1", "K2", 4)
@@ -132,6 +137,12 @@ if __name__ == "__main__":
     #Aktarma bağlantısı
     metro.baglanti_ekle("Y4", "K1", 2)  #Kolej (Yeşil Hat) ↔ Kızılay (Kırmızı Hat)
 
+    #Mor Hat bağlantıları
+    metro.baglanti_ekle("P1", "P2", 5)  # OSTİM -> Gimat
+    metro.baglanti_ekle("P2", "P3", 6)  # Gimat -> AŞTİ
+
+    #AŞTİ aktarması (Mor ↔ Mavi)
+    metro.baglanti_ekle("P3", "M1", 1)  #AŞTİ (Mor) ↔ AŞTİ (Mavi)
 
     print("\n=== Test Senaryoları ===")
 
