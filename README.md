@@ -66,4 +66,4 @@ python AdSoyad_MetroSimulation.py
 ## ✨ Yazar
 
 **İrem Yalçın**  
-[GitHub Profilin](https://github.com/abitofirem)
+[GitHub](https://github.com/abitofirem)
