@@ -58,28 +58,32 @@ class MetroAgi:
 
 
     def en_hizli_rota_bul(self, baslangic_id: str, hedef_id: str) -> Optional[Tuple[List[Istasyon], int]]:
-        """A* algoritması kullanarak en hızlı rotayı bulur
-        
-        Bu fonksiyonu tamamlayın:
-        1. Başlangıç ve hedef istasyonların varlığını kontrol edin
-        2. A* algoritmasını kullanarak en hızlı rotayı bulun
-        3. Rota bulunamazsa None, bulunursa (istasyon_listesi, toplam_sure) tuple'ı döndürün
-        4. Fonksiyonu tamamladıktan sonra, # TODO ve pass satırlarını kaldırın
-        
-        İpuçları:
-        - heapq modülünü kullanarak bir öncelik kuyruğu oluşturun, HINT: pq = [(0, id(baslangic), baslangic, [baslangic])]
-        - Ziyaret edilen istasyonları takip edin
-        - Her adımda toplam süreyi hesaplayın
-        - En düşük süreye sahip rotayı seçin
-        """
-        # TODO: Bu fonksiyonu tamamlayın
-        pass
         if baslangic_id not in self.istasyonlar or hedef_id not in self.istasyonlar:
             return None
 
         baslangic = self.istasyonlar[baslangic_id]
         hedef = self.istasyonlar[hedef_id]
+
+        pq = [(0, id(baslangic), baslangic, [baslangic])]
         ziyaret_edildi = set()
+
+        while pq:
+            sure, _, mevcut, rota = heapq.heappop(pq)
+
+            if mevcut.idx == hedef.idx:
+                return (rota, sure)
+
+            if mevcut.idx in ziyaret_edildi:
+                continue
+            ziyaret_edildi.add(mevcut.idx)
+
+            for komsu, gecis_suresi in mevcut.komsular:
+                if komsu.idx not in ziyaret_edildi:
+                    toplam_sure = sure + gecis_suresi
+                    heapq.heappush(pq, (toplam_sure, id(komsu), komsu, rota + [komsu]))
+
+        return None
+
 
 # Örnek Kullanım
 if __name__ == "__main__":
