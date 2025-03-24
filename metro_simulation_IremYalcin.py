@@ -97,6 +97,17 @@ def metro_agini_gorsellestir(metro):
         for komsu, sure in istasyon.komsular:
             G.add_edge(istasyon.ad, komsu.ad, weight=sure)  #Bağlantıları ekliyoruz
 
+
+
+    #Grafiği çizme
+    pos = nx.spring_layout(G)  #Düğümlerin konumlarını belirliyoruz.
+    nx.draw(G, pos, with_labels=True, node_color="skyblue", node_size=2000, font_size=10)
+    labels = nx.get_edge_attributes(G, 'weight')  #Bağlantı ağırlıklarını etiket olarak alıyoruz
+    nx.draw_networkx_edge_labels(G, pos, edge_labels=labels)
+    plt.title("Metro Ağı Görselleştirme")
+    plt.show()
+    
+    
 #Örnek Kullanım
 if __name__ == "__main__":
     metro = MetroAgi()
