@@ -80,11 +80,11 @@ class MetroAgi:
 
         return None
 
-# Örnek Kullanım
+#Örnek Kullanım
 if __name__ == "__main__":
     metro = MetroAgi()
 
-    # İstasyonlar ekleme
+    #İstasyonlar ekleme
     
     # Kırmızı Hat
     metro.istasyon_ekle("K1", "Kızılay", "Kırmızı Hat")
@@ -123,6 +123,15 @@ if __name__ == "__main__":
     metro.baglanti_ekle("K1", "M2", 2)
     metro.baglanti_ekle("K3", "T2", 3)
     metro.baglanti_ekle("M4", "T3", 2)
+    
+    # Yeni Eklediğim Yeşil Hat bağlantıları
+    metro.baglanti_ekle("Y1", "Y2", 4)  #Gazi -> Emek
+    metro.baglanti_ekle("Y2", "Y3", 3)  #Emek -> Bahçelievler
+    metro.baglanti_ekle("Y3", "Y4", 2)  #Bahçelievler -> Kolej
+
+    #Aktarma bağlantısı
+    metro.baglanti_ekle("Y4", "K1", 2)  #Kolej (Yeşil Hat) ↔ Kızılay (Kırmızı Hat)
+
 
     print("\n=== Test Senaryoları ===")
 
