@@ -203,3 +203,15 @@ if __name__ == "__main__":
         rota, sure = sonuc
         print(f"En hızlı rota ({sure} dakika):", end=" ")
         yazdir(rota)
+
+    print("\n4. OSTİM'den Keçiören'e:")
+    rota = metro.en_az_aktarma_bul("P1", "T4")
+    if rota:
+        print("En az aktarmalı rota:", end=" ")
+        yazdir(rota)
+
+    sonuc = metro.en_hizli_rota_bul("P1", "T4")
+    if sonuc:
+        rota, sure = sonuc
+        print(f"En hızlı rota ({sure} dakika):", end=" ")
+        yazdir(rota)
