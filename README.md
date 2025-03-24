@@ -62,8 +62,28 @@ if sonuc:
     print(f"En hızlı rota ({sure} dakika):")
     yazdir(rota)
 
+## Görselleştirme
 
-## 💡 Geliştirme Fikirleri
+Metro ağı, her hattın farklı renklerle görselleştirildiği ve her bağlantıdaki mesafelerin etiketlendiği şekilde sunulmuştur. Kullanıcılar, metro ağını görsel olarak inceleyebilir, istasyonlar arasındaki bağlantıları ve süreleri kolayca görebilirler. Aşağıda, metro ağını gösteren görsel örneği bulunmaktadır:
+
+![Metro Ağı Görselleştirme](./metro_network_image.png)
+
+## Graf Görselleştirme Detayları
+
+- **Ağ Görselleştirme**: NetworkX kütüphanesi ile oluşturulan graf, her bir istasyon (düğüm) ve bağlantı (kenar) için renkli gösterimler kullanır.
+  
+- **Renkler**: Farklı hatlar, farklı renklerde gösterilmektedir. Örneğin, kırmızı hat, mavi hat, yeşil hat gibi renklerle tanımlanmış olup görselde bu renkler açıkça ayırt edilebilir.
+
+- **Bağlantı Mesafeleri**: Bağlantı üzerindeki süreler, kenar etiketleri olarak gösterilmiştir, böylece kullanıcılar her bir yolun ne kadar süre aldığını kolayca görebilir.
+
+## Kurulum
+
+Metro ağını görselleştirebilmek ve çalıştırabilmek için gerekli kütüphaneleri yüklemek için aşağıdaki komutları kullanabilirsiniz:
+
+```bash
+pip install networkx matplotlib
+
+##  Geliştirme Fikirleri
 
 - Metro ağını **görselleştirme** (networkx + matplotlib)
 - JSON dosyasından istasyon yükleme
