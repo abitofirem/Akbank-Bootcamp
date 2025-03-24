@@ -85,20 +85,31 @@ if __name__ == "__main__":
     metro = MetroAgi()
 
     # İstasyonlar ekleme
+    
+    # Kırmızı Hat
     metro.istasyon_ekle("K1", "Kızılay", "Kırmızı Hat")
     metro.istasyon_ekle("K2", "Ulus", "Kırmızı Hat")
     metro.istasyon_ekle("K3", "Demetevler", "Kırmızı Hat")
     metro.istasyon_ekle("K4", "OSB", "Kırmızı Hat")
 
+    # Mavi Hat
     metro.istasyon_ekle("M1", "AŞTİ", "Mavi Hat")
     metro.istasyon_ekle("M2", "Kızılay", "Mavi Hat")
     metro.istasyon_ekle("M3", "Sıhhiye", "Mavi Hat")
     metro.istasyon_ekle("M4", "Gar", "Mavi Hat")
 
+    #Turuncu Hat
     metro.istasyon_ekle("T1", "Batıkent", "Turuncu Hat")
     metro.istasyon_ekle("T2", "Demetevler", "Turuncu Hat")
     metro.istasyon_ekle("T3", "Gar", "Turuncu Hat")
     metro.istasyon_ekle("T4", "Keçiören", "Turuncu Hat")
+    
+    # Yeşil Hat
+    metro.istasyon_ekle("Y1", "Gazi", "Yeşil Hat")
+    metro.istasyon_ekle("Y2", "Emek", "Yeşil Hat")
+    metro.istasyon_ekle("Y3", "Bahçelievler", "Yeşil Hat")
+    metro.istasyon_ekle("Y4", "Kolej", "Yeşil Hat")
+
 
     metro.baglanti_ekle("K1", "K2", 4)
     metro.baglanti_ekle("K2", "K3", 6)
