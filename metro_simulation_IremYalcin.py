@@ -1,6 +1,11 @@
 from collections import defaultdict, deque
 import heapq
 from typing import Dict, List, Set, Tuple, Optional
+import networkx as nx
+import matplotlib.pyplot as plt
+
+
+
 
 class Istasyon:
     def __init__(self, idx: str, ad: str, hat: str):
@@ -79,6 +84,18 @@ class MetroAgi:
                     heapq.heappush(pq, (toplam_sure, id(komsu), komsu, rota + [komsu]))
 
         return None
+    
+    
+#Görselleştirme fonksiyonu
+def metro_agini_gorsellestir(metro):
+    G = nx.Graph()  # Yeni bir grafik nesnesi oluşturuyoruz.
+
+    #İstasyonlar ve bağlantılar ekleme
+    for istasyon_id, istasyon in metro.istasyonlar.items():
+        G.add_node(istasyon.ad)  #İstasyonu grafiğe ekliyoruz
+
+        for komsu, sure in istasyon.komsular:
+            G.add_edge(istasyon.ad, komsu.ad, weight=sure)  #Bağlantıları ekliyoruz
 
 #Örnek Kullanım
 if __name__ == "__main__":
