@@ -1,6 +1,5 @@
 # 🚇 Sürücüsüz Metro Simülasyonu (Rota Optimizasyonu)
 
-
 Bu proje, bir şehirdeki metro ağı üzerinde iki istasyon arasındaki en az aktarmalı ve en hızlı rotaları bulan bir simülasyon sistemini içermektedir. BFS (Breadth-First Search) ve A* algoritmalarını kullanarak metro istasyonları arasındaki bağlantıları analiz eder ve kullanıcılara farklı rotaları sunar.
 
 ## Kullanılan Teknolojiler ve Kütüphaneler
@@ -31,13 +30,10 @@ Aşağıdaki hatlar ve renkler kullanılarak metro ağı görselleştirilmiştir
 
 1. **AŞTİ'den OSB'ye**
    - En az aktarmalı rota ve en hızlı rota hesaplanır.
-   
 2. **Batıkent'ten Keçiören'e**
    - Aynı şekilde, en az aktarmalı ve en hızlı rota hesaplanır.
-   
 3. **Keçiören'den AŞTİ'ye**
    - Yine benzer şekilde hesaplama yapılır.
-
 4. **Gazi'den OSB'ye**
    - Gazi istasyonundan OSB'ye olan en az aktarmalı ve en hızlı rota hesaplanır.
 
@@ -45,35 +41,20 @@ Aşağıdaki hatlar ve renkler kullanılarak metro ağı görselleştirilmiştir
 
 ```python
 metro = MetroAgi()
-
-# İstasyonlar ekleme
-metro.istasyon_ekle("K1", "Kızılay", "Kırmızı Hat")
-# ... (Diğer istasyon eklemeleri ve bağlantılar)
-
-# Test senaryosu
+# ... istasyon eklemeleri
 rota = metro.en_az_aktarma_bul("M1", "K4")
-if rota:
-    print("En az aktarmalı rota:")
-    yazdir(rota)
-
-sonuc = metro.en_hizli_rota_bul("M1", "K4")
-if sonuc:
-    rota, sure = sonuc
-    print(f"En hızlı rota ({sure} dakika):")
-    yazdir(rota)
+```
 
 ## Görselleştirme
 
-Metro ağı, her hattın farklı renklerle görselleştirildiği ve her bağlantıdaki mesafelerin etiketlendiği şekilde sunulmuştur. Kullanıcılar, metro ağını görsel olarak inceleyebilir, istasyonlar arasındaki bağlantıları ve süreleri kolayca görebilirler. Aşağıda, metro ağını gösteren görsel örneği bulunmaktadır:
+Metro ağı, her hattın farklı renklerle görselleştirildiği ve her bağlantındaki mesafelerin etiketlendiği şekilde sunulmuştur. Kullanıcılar, metro ağını görsel olarak inceleyebilir, istasyonlar arasındaki bağlantıları ve süreleri kolayca görebilirler. Aşağıda, metro ağını gösteren görsel örneği bulunmaktadır:
 
 ![Metro Ağı Görselleştirme](./metro_network_image.png)
 
-## Graf Görselleştirme Detayları
+### Graf Görselleştirme Detayları
 
 - **Ağ Görselleştirme**: NetworkX kütüphanesi ile oluşturulan graf, her bir istasyon (düğüm) ve bağlantı (kenar) için renkli gösterimler kullanır.
-  
 - **Renkler**: Farklı hatlar, farklı renklerde gösterilmektedir. Örneğin, kırmızı hat, mavi hat, yeşil hat gibi renklerle tanımlanmış olup görselde bu renkler açıkça ayırt edilebilir.
-
 - **Bağlantı Mesafeleri**: Bağlantı üzerindeki süreler, kenar etiketleri olarak gösterilmiştir, böylece kullanıcılar her bir yolun ne kadar süre aldığını kolayca görebilir.
 
 ## Kurulum
@@ -82,17 +63,27 @@ Metro ağını görselleştirebilmek ve çalıştırabilmek için gerekli kütü
 
 ```bash
 pip install networkx matplotlib
+```
 
-##  Geliştirme Fikirleri
+## Kullanıcı Arayüzü (GUI) Eklemek
 
-- Metro ağını **görselleştirme** (networkx + matplotlib)
-- JSON dosyasından istasyon yükleme
-- Web arayüzü (Flask)
-- Kullanıcıdan canlı istasyon seçimi (input)
+Görselleştirmeyi daha kullanıcı dostu hale getirmek için bir GUI eklenmesi faydalı olabilir. Bu GUI, kullanıcıların başlangıç ve hedef istasyonlarını seçebileceği, ardından en az aktarmalı ve en hızlı rotayı görsel olarak görebileceği bir arayüz olabilir.
+
+## Projenin Gelecekteki Gelişimi
+
+- **Dinamik Veri Entegrasyonu**: Metro hattı ve istasyonları için gerçek zamanlı veri entegrasyonu eklenebilir.
+- **Mobil Uygulama**: Proje, bir mobil uygulamaya dönüştürülerek kullanıcıya sunulabilir.
+- **Daha Karmaşık Metro Ağı Modelleri**: Daha büyük şehirlerin verileriyle genişletilebilir.
+- **Kullanıcı Geri Bildirim Sistemi**: Kullanıcıların rotaları değerlendirebileceği sistemler eklenebilir.
+
+## Geliştirme Fikirleri
+
+- Farklı Rotasyon Yöntemleri: A* algoritmasına ek olarak Dijkstra, Bellman-Ford gibi yöntemler eklenebilir.
+- Gerçek Zamanlı Trafik ve Kapasite Bilgisi: Metro istasyonlarındaki doluluk oranları, anlık trafik durumu gibi bilgiler rota hesaplamasında kullanılabilir.
 
 ---
 
-## 📂 Kurulum
+## 📂 Projeyi Çalıştırmak
 
 ```bash
 git clone https://github.com/abitofirem/Akbank-Bootcamp.git
