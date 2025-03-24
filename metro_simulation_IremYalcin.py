@@ -243,3 +243,6 @@ if __name__ == "__main__":
         rota, sure = sonuc
         print(f"En hızlı rota ({sure} dakika):", end=" ")
         yazdir(rota)
+
+
+    metro_agini_gorsellestir(metro)
